@@ -50,7 +50,7 @@ pub mod my_psp37 {
             account: AccountId,
 			ids_amounts: Vec<(Id, Balance)>
         ) -> Result<(), PSP37Error> {
-			self._mint_to(account, ids_amounts	)
+			self._mint_to(account, ids_amounts)
 		}
 	}
 	impl PSP37Enumerable for MyERC1155 {}
