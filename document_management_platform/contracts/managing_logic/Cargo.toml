@@ -1,0 +1,40 @@
+[package]
+name = "managing_logic"
+version = "0.1.0"
+authors = ["PhamVuThuNguyet"]
+edition = "2021"
+
+[dependencies]
+ink = { version = "4.2.0", default-features = false }
+
+scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
+scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
+
+native_token = { path = "../native_token", default-features = false, features = ["ink-as-dependency"]  }
+nft_token = { path = "../nft_token", default-features = false, features = ["ink-as-dependency"]  }
+document_management_platform = { path = "../..", default-features = false }
+
+openbrush = { tag = "3.0.0", git = "https://github.com/727-Ventures/openbrush-contracts", default-features = false, features = ["psp37", "psp22", "ownable"] }
+
+[dev-dependencies]
+ink_e2e = "4.2.0"
+
+[lib]
+path = "lib.rs"
+crate-type = [
+    "cdylib",
+    "rlib"
+]
+
+[features]
+default = ["std"]
+std = [
+    "ink/std",
+    "scale/std",
+    "scale-info/std",
+    "native_token/std",
+    "nft_token/std",
+    "openbrush/std",
+]
+ink-as-dependency = []
+e2e-tests = []
